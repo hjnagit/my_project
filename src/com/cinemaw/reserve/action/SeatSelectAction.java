@@ -12,7 +12,7 @@ import com.cinemaw.reserve.db.ReserveDAO;
 import com.cinemaw.reserve.db.ReserveDTO;
 
 public class SeatSelectAction implements Action{
-
+	//이거 안된다
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		System.out.println("M : SeatSelectAction.execute() 호출");
@@ -33,7 +33,7 @@ public class SeatSelectAction implements Action{
 		
 		for(int i=0; i<seatList.size(); i++){
 			ReserveDTO dto = seatList.get(i);
-			seats.add(dto.getR_seat());
+//			seats.add(dto.getR_seat());
 		}
 		
 		//영화정보 가져오기

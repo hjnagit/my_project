@@ -19,9 +19,9 @@ $( document ).ready( function() {
       $( '#pointS' ).text( totalPoint );
       $( '#use' ).text( -Number(a) );
       
-      var x = $( '#adult' ).val();
-      var y = $( '#teen' ).val();
-      var z = $( '#elder' ).val();
+      var x = $( '#r_adult' ).val();
+      var y = $( '#r_teenager' ).val();
+      var z = $( '#r_elderly' ).val();
       var totalPay = Number(x)*15000 + Number(y)*11000 + Number(z)*5000 - Number(a);
       $( '#r_pay_price' ).text( totalPay );
       
@@ -71,13 +71,13 @@ $( document ).ready( function() {
 <input type="hidden" name="mv_picture" id="mv_picture" value="${param.mv_picture }">
 <input type="hidden" name="m_nm" id="m_nm" value="${param.m_nm }">
 <br>
-일반 : ${param.adult }
-청소년 : ${param.teen }
-우대 : ${param.elder } &nbsp;&nbsp;&nbsp;&nbsp;
-총 인원수 : ${param.adult + param.teen + param.elder }
-<input type="hidden" name="adult" id="adult" value="${param.adult }">
-<input type="hidden" name="teen" id="teen" value="${param.teen }">
-<input type="hidden" name="elder" id="elder" value="${param.elder }">
+일반 : ${param.r_adult }
+청소년 : ${param.r_teenager }
+우대 : ${param.r_elderly } &nbsp;&nbsp;&nbsp;&nbsp;
+총 인원수 : ${param.r_adult + param.r_teenager + param.r_elderly }
+<input type="hidden" name="r_adult" id="r_adult" value="${param.r_adult }">
+<input type="hidden" name="r_teenager" id="r_teenager" value="${param.r_teenager }">
+<input type="hidden" name="r_elderly" id="r_elderly" value="${param.r_elderly }">
 <hr>
 선택한 좌석 : 
 <%
@@ -113,13 +113,14 @@ for(String s : seat){
 
 
 
-<h3>금액 : ${param.adult*15000 + param.teen*11000 + param.elder*5000 }</h3>
+<h3>금액 : ${param.r_adult*15000 + param.r_teenager*11000 + param.r_elderly*5000 }</h3>
 <h3>할인된 금액 : <span id="use">-</span></h3>
 
-<h3>총 결제 금액  </h3> <h1><span id="r_pay_price">${param.adult*15000 + param.teen*11000 + param.elder*5000 }</span></h1>
+<h3>총 결제 금액  </h3> 
+<h1><span id="r_pay_price">${param.r_adult*15000 + param.r_teenager*11000 + param.r_elderly*5000 }</span></h1>
 
 <input type="submit" value="결제하기">
-<input type="button" value="결제취소">
+<input type="button" value="결제취소" onclick="location.href='./main.me';">
 
 </form>
 

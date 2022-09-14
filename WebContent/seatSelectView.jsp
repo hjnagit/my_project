@@ -13,10 +13,10 @@
 <script src="//code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
 $( document ).ready( function() {
-    $('#adult, #teen, #elder').change( function() {
-      var a = $( '#adult' ).val();
-      var b = $( '#teen' ).val();
-      var c = $( '#elder' ).val();
+    $('#r_adult, #r_teenager, #r_elderly').change( function() {
+      var a = $( '#r_adult' ).val();
+      var b = $( '#r_teenager' ).val();
+      var c = $( '#r_elderly' ).val();
       var totalNum = Number(a) + Number(b) + Number(c);
       $( '#totalNum' ).text( totalNum );
       var totalPay = Number(a)*15000 + Number(b)*11000 + Number(c)*5000;
@@ -25,9 +25,9 @@ $( document ).ready( function() {
     
      $('#submit').click(function(){
     	var selectamount = $('input:checkbox[name="seat"]:checked').length;
-    	var a = $( '#adult' ).val();
-        var b = $( '#teen' ).val();
-        var c = $( '#elder' ).val();
+    	var a = $( '#r_adult' ).val();
+        var b = $( '#r_teenager' ).val();
+        var c = $( '#r_elderly' ).val();
         var totalNum = Number(a) + Number(b) + Number(c);
    		
    		if(totalNum == 0){
@@ -188,9 +188,9 @@ $( document ).ready( function() {
 <h3>인원과 좌석을 선택해주세요</h3>
 <hr>
 
-일반 <input type="number" name="adult" id="adult" min="0" max="4" value="0">
-청소년 <input type="number" name="teen" id="teen" min="0" max="4" value="0">
-우대 <input type="number" name="elder" id="elder" min="0" max="4" value="0">
+일반 <input type="number" name="r_adult" id="r_adult" min="0" max="4" value="0">
+청소년 <input type="number" name="r_teenager" id="r_teenager" min="0" max="4" value="0">
+우대 <input type="number" name="r_elderly" id="r_elderly" min="0" max="4" value="0">
 <br>
 총 인원수 <span id="totalNum"></span> &nbsp;&nbsp;&nbsp;<small>(최대 예매 인원수는 4명 입니다)</small>
 <br>
@@ -205,7 +205,7 @@ $( document ).ready( function() {
          	 
 
       	 	<c:forEach var="j" begin="1" end="8">
-         	 	${j }
+         	 <small>${j }</small>	
          	 	<c:forEach var="i" begin="1" end="12">
          	 	
 					<input type="checkbox" name="seat" id="${j }_${i}" value="${j }_${i}">

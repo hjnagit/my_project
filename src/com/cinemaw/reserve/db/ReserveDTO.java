@@ -14,9 +14,6 @@ public class ReserveDTO {
 	
 	
 	
-	
-	
-	private String r_seat; //좌석번호
 	private String r_seat_1; //좌석번호
 	private String r_seat_2; //좌석번호
 	private String r_seat_3; //좌석번호
@@ -136,12 +133,7 @@ public class ReserveDTO {
 	public void setR_elderly(int r_elderly) {
 		this.r_elderly = r_elderly;
 	}
-	public String getR_seat() {
-		return r_seat;
-	}
-	public void setR_seat(String r_seat) {
-		this.r_seat = r_seat;
-	}
+	
 	public String getR_pay_type() {
 		return r_pay_type;
 	}
@@ -164,7 +156,7 @@ public class ReserveDTO {
 	public String toString() {
 		return "ReserveDTO [r_id=" + r_id + ", u_id=" + u_id + ", t_id=" + t_id + ", s_date=" + s_date + ", s_time="
 				+ s_time + ", m_id=" + m_id + ", r_adult=" + r_adult + ", r_teenager=" + r_teenager + ", r_elderly="
-				+ r_elderly + ", r_seat=" + r_seat + ", r_seat_1=" + r_seat_1 + ", r_seat_2=" + r_seat_2 + ", r_seat_3="
+				+ r_elderly + ", r_seat_1=" + r_seat_1 + ", r_seat_2=" + r_seat_2 + ", r_seat_3="
 				+ r_seat_3 + ", r_seat_4=" + r_seat_4 + ", r_pay_type=" + r_pay_type + ", r_pay_price=" + r_pay_price
 				+ ", r_user_point=" + r_user_point + ", m_nm=" + m_nm + ", mv_picture=" + mv_picture + ", point="
 				+ point + "]";
