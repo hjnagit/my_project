@@ -42,7 +42,11 @@ $( document ).ready( function() {
 		System.out.println("로그인 정보 없음!");
 		response.sendRedirect("./login.me");
 	}
+	
+	//결제페이지에서 10분이 지나면 영화선택 페이지로 이동한다
+	response.addHeader("Refresh", "600; url=./RefreshPage.re");
 %>
+
 
 
 <h1>결제 페이지</h1>

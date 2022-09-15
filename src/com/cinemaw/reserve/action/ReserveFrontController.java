@@ -97,6 +97,19 @@ public class ReserveFrontController extends HttpServlet{
 			forward.setPath("./errorPage.jsp");
 			forward.setRedirect(true);
 		}
+		else if(command.equals("/RefreshPage.re")){ //결제시간 초과 -> 영화선택 페이지로 이동
+			
+			System.out.println("C : /RefreshPage.re 호출");
+			
+			action = new RefreshAction();
+			
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
 		
 		
 		System.out.println("2. 가상주소 매핑 - 끝");
