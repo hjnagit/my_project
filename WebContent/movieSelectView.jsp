@@ -17,7 +17,7 @@
 %>
 
 <fieldset>
-	<form action="./MovieSelectAction.re" method="post">
+	<form action="./SeatSelect.re" method="post">
 		구매자아이디 : <input type="text" name="u_id" value="aaa"><br>
 		극장아이디 : <input type="text" name="t_id" value="101"><br>
 		상영날짜 : <input type="text" name="s_date" value="20220927"><br>

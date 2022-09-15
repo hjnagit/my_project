@@ -39,7 +39,7 @@ public class ReserveFrontController extends HttpServlet{
 			forward.setPath("./movieSelectView.jsp");
 			forward.setRedirect(false);
 		}
-		else if(command.equals("/MovieSelectAction.re")){ //영화선택액션으로 이동
+		else if(command.equals("/SeatSelect.re")){ //영화선택액션으로 이동
 			System.out.println("C : /MovieSelectAction.re 호출");
 			System.out.println("C : DB에서 정보 가져오기, 페이지 이동");
 			
@@ -51,7 +51,7 @@ public class ReserveFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/SeatSelectAction.re")){ //좌석선택액션으로 이동
+		else if(command.equals("/SeatSelectAction.re")){ //좌석선택액션으로 이동 - 사용안함!!!
 			
 			System.out.println("C : /SeatSelectAction.re 호출");
 			
@@ -74,7 +74,7 @@ public class ReserveFrontController extends HttpServlet{
 			forward.setPath("./payView.jsp");
 			forward.setRedirect(false);
 		}
-		else if(command.equals("/PayAction.re")){ //결제액션으로 이동
+		else if(command.equals("/PayAction.re")){ //결제액션으로 이동 - 디비에 저장하기
 			
 			System.out.println("C : /PayAction.re 호출");
 			
@@ -87,11 +87,17 @@ public class ReserveFrontController extends HttpServlet{
 			}
 			
 		}	
-		else if(command.equals("/payCom.re")){ //결제완료 이동
+		else if(command.equals("/payCom.re")){ //결제완료페이지 이동
 			forward = new ActionForward();
 			forward.setPath("./payCom.jsp");
+			forward.setRedirect(false);
+		}
+		else if(command.equals("/errorPage.re")){ //에러페이지->영화선택 페이지
+			forward = new ActionForward();
+			forward.setPath("./errorPage.jsp");
 			forward.setRedirect(true);
 		}
+		
 		
 		System.out.println("2. 가상주소 매핑 - 끝");
 		
@@ -114,10 +120,15 @@ public class ReserveFrontController extends HttpServlet{
 		}		
 		System.out.println("3. 가상주소 이동 - 끝");
 		
-		
 
-		
-	}
+	}//doProcess
+	
+	
+	
+	
+	
+	
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -128,6 +139,7 @@ public class ReserveFrontController extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doProcess(request, response);
 	}
+	
 	
 	
 	

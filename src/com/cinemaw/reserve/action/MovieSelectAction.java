@@ -40,31 +40,35 @@ public class MovieSelectAction implements Action {
 			seat_3.add(dto.getR_seat_3());
 			seat_4.add(dto.getR_seat_4());
 		}
-		System.out.println("M : 좌석정보 저장 완료!");
 		
-		
-		//포인트 가져오기
-		ReserveDTO dto = dao.getPoint(u_id);
-		
-		int point = dto.getPoint();
-		
-		//view 페이지 정보 전달을 위해서 request 영역에 저장
-		request.setAttribute("point", point);
-		
-		
-		//영화정보 가져오기
-		dto = dao.getMovieInfo(m_id);
-//		String m_nm = dto.getM_nm();
-//		String mv_picture = dto.getMv_picture();
-		
+		//예매된 좌석 저장하기
 		//view 페이지 정보 전달을 위해서 request 영역에 저장
 		request.setAttribute("seat_1", seat_1);
 		request.setAttribute("seat_2", seat_2);
 		request.setAttribute("seat_3", seat_3);
 		request.setAttribute("seat_4", seat_4);
-//		request.setAttribute("m_nm", m_nm);
-//		request.setAttribute("mv_picture", mv_picture);
+		
+		System.out.println("M : 좌석정보 저장 완료!");
+		
+		
+		
+		//포인트 가져오기 -> 지금 필요없음 수정해야함...
+		ReserveDTO dto = dao.getPoint(u_id);
+		
+		int point = dto.getPoint();
+		
+		request.setAttribute("point", point);
+		
+		
+		//영화정보 가져오기
+		dto = dao.getMovieInfo(m_id);
+		
+		//dto에 영화 정보 저장하기
 		request.setAttribute("dto", dto);
+		
+		
+		
+
 		
 		
 		
