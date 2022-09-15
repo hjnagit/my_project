@@ -17,4 +17,25 @@
     <servlet-name>ReserveFrontController</servlet-name>
     <url-pattern>*.re</url-pattern>
   </servlet-mapping>
+  
+  
+  
+  
+  <servlet>
+     <servlet-name>MemberFrontController</servlet-name>
+     <servlet-class>com.cinemaw.member.action.MemberFrontController</servlet-class>
+  </servlet>  
+  <servlet-mapping>
+     <servlet-name>MemberFrontController</servlet-name>
+     <url-pattern>*.me</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+  
+  
+  
+  
+  
+  
 </web-app>

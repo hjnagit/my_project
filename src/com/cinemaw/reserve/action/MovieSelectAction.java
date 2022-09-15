@@ -22,12 +22,14 @@ public class MovieSelectAction implements Action {
 		//영화아이디,상영날짜,시간이 같으면 같은 좌석을 예매하지 못하게
 		ReserveDAO dao = new ReserveDAO();
 		
-		String u_id = request.getParameter("u_id");
+		String u_id = request.getParameter("u_id");// 세션에서 받아야함 확인
+		
+		int t_id = Integer.parseInt(request.getParameter("t_id"));
 		String s_date = request.getParameter("s_date");
 		String s_time = request.getParameter("s_time");
 		int m_id = Integer.parseInt(request.getParameter("m_id"));
 		
-		List<ReserveDTO> seatList = dao.getSeatList(s_date, s_time, m_id);
+		List<ReserveDTO> seatList = dao.getSeatList(t_id, s_date, s_time, m_id);
 		List<String> seat_1 = new ArrayList<String>();
 		List<String> seat_2 = new ArrayList<String>();
 		List<String> seat_3 = new ArrayList<String>();

@@ -25,9 +25,10 @@ public class SeatSelectAction implements Action{
 		String s_date = request.getParameter("s_date");
 		String s_time = request.getParameter("s_time");
 		int m_id = Integer.parseInt(request.getParameter("m_id"));
-		String u_id = request.getParameter("u_id");
+		int t_id = Integer.parseInt(request.getParameter("t_id"));
+		String u_id = request.getParameter("u_id"); //세션에서 가져야함 확인 수정해라 제발
 		
-		List<ReserveDTO> seatList = dao.getSeatList(s_date, s_time, m_id);
+		List<ReserveDTO> seatList = dao.getSeatList(t_id, s_date, s_time, m_id);
 		List<String> seats = new ArrayList<String>();
 		System.out.println("M : 좌석정보 저장 완료!");
 		

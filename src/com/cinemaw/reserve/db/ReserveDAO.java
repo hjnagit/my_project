@@ -162,7 +162,7 @@ public class ReserveDAO {
 	
 	
 	//좌석정보 가져오기
-	public List<ReserveDTO> getSeatList(String s_date, String s_time, int m_id){
+	public List<ReserveDTO> getSeatList(int t_id, String s_date, String s_time, int m_id){
 		List<ReserveDTO> seatList = new ArrayList<>();
 		
 		try {
@@ -171,13 +171,14 @@ public class ReserveDAO {
 			con = getConnect();
 			
 			//3. sql 작성 & pstmt 객체
-			sql = "select r_seat_1, r_seat_2, r_seat_3, r_seat_4 from reserve_info where s_date=? and s_time=? and m_id=?";
+			sql = "select r_seat_1, r_seat_2, r_seat_3, r_seat_4 from reserve_info where t_id=? and s_date=? and s_time=? and m_id=?";
 			pstmt = con.prepareStatement(sql);
 			
 			//??
-			pstmt.setString(1, s_date);
-			pstmt.setString(2, s_time);
-			pstmt.setInt(3, m_id);
+			pstmt.setInt(1, t_id);
+			pstmt.setString(2, s_date);
+			pstmt.setString(3, s_time);
+			pstmt.setInt(4, m_id);
 			
 			//4. sql 실행
 			rs = pstmt.executeQuery();
@@ -249,82 +250,79 @@ public class ReserveDAO {
 	
 	
 	 // 사용포인트 반영하기
-		public void pointUpdate(String u_id, int point){
-			try {
-				//예약번호 저장/////////////////////////////////////////
-				//1. 드라이버 로드
-				//2. 디비 연결
-				con = getConnect();
-				
-				//3. sql 작성 & pstmt 객체
-				sql = "update point set point = ? where u_id = ?";
-				pstmt = con.prepareStatement(sql);
-				
-				//??
-				pstmt.setInt(1, point);
-				pstmt.setString(2, u_id);
-				
-				//4. sql 실행
-				pstmt.executeUpdate();
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally{
-				closeDB();
+	public void pointUpdate(String u_id, int point) {
+		try {
+			// 예약번호 저장/////////////////////////////////////////
+			// 1. 드라이버 로드
+			// 2. 디비 연결
+			con = getConnect();
+
+			// 3. sql 작성 & pstmt 객체
+			sql = "update point set point = ? where u_id = ?";
+			pstmt = con.prepareStatement(sql);
+
+			// ??
+			pstmt.setInt(1, point);
+			pstmt.setString(2, u_id);
+
+			// 4. sql 실행
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+
+	}// 사용포인트 반영하기
+
+	// 좌석 현황 반영하기
+	public void seatUpdate(int num, int t_id, String s_date, String s_time, int m_id) {
+		int seat_cnt = 0;
+		try {
+			// 예약번호 저장/////////////////////////////////////////
+			// 1. 드라이버 로드
+			// 2. 디비 연결
+			con = getConnect();
+
+			// 디비정보 가져오기 현재의 좌석정보
+			sql = "select seat_cnt from screen_master where  t_num = ? and s_date=? and s_time=? and m_id=?";
+			pstmt = con.prepareStatement(sql);
+
+			pstmt.setInt(1, t_id);
+			pstmt.setString(2, s_date);
+			pstmt.setString(3, s_time);
+			pstmt.setInt(4, m_id);
+
+			// 데이터 처리
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				seat_cnt = rs.getInt("seat_cnt");
 			}
 
-		}// 사용포인트 반영하기
-	
-		//좌석 현황 반영하기
-		public void seatUpdate(int num, int t_id, String s_date, String s_time, int m_id){
-			int seat_cnt = 0;
-			try {
-				//예약번호 저장/////////////////////////////////////////
-				//1. 드라이버 로드
-				//2. 디비 연결
-				con = getConnect();
-				
-				//디비정보 가져오기 현재의 좌석정보
-				sql = "select seat_cnt from screen_master where  t_num = ? and s_date=? and s_time=? and m_id=?";
-				pstmt = con.prepareStatement(sql);
-				
-				pstmt.setInt(1, t_id);
-				pstmt.setString(2, s_date);
-				pstmt.setString(3, s_time);
-				pstmt.setInt(4, m_id);
-				
-				//데이터 처리
-				rs = pstmt.executeQuery();
-				
-				if(rs.next()){
-					seat_cnt = rs.getInt("seat_cnt");
-				}
-				
-				
-				//디비에 업데이트 하기
-				//3. sql 작성 & pstmt 객체
-				sql = "update screen_master set seat_cnt = ? where t_num = ? and s_date=? and s_time=? and m_id=?";
-				pstmt = con.prepareStatement(sql);
-				
-				//??
-				pstmt.setInt(1, seat_cnt-num);
-				pstmt.setInt(2, t_id);
-				pstmt.setString(3, s_date);
-				pstmt.setString(4, s_time);
-				pstmt.setInt(5, m_id);
-				
-				//4. sql 실행
-				pstmt.executeUpdate();
-				
-			} catch (Exception e) {
-				e.printStackTrace();
-			} finally{
-				closeDB();
-			}
+			// 디비에 업데이트 하기
+			// 3. sql 작성 & pstmt 객체
+			sql = "update screen_master set seat_cnt = ? where t_num = ? and s_date=? and s_time=? and m_id=?";
+			pstmt = con.prepareStatement(sql);
 
-		}//좌석 현황 반영하기
-	
-	
+			// ??
+			pstmt.setInt(1, seat_cnt - num);
+			pstmt.setInt(2, t_id);
+			pstmt.setString(3, s_date);
+			pstmt.setString(4, s_time);
+			pstmt.setInt(5, m_id);
+
+			// 4. sql 실행
+			pstmt.executeUpdate();
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			closeDB();
+		}
+
+	}// 좌석 현황 반영하기
 	
 	
 }

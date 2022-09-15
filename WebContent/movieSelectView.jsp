@@ -19,10 +19,10 @@
 <fieldset>
 	<form action="./SeatSelect.re" method="post">
 		구매자아이디 : <input type="text" name="u_id" value="aaa"><br>
-		극장아이디 : <input type="text" name="t_id" value="101"><br>
-		상영날짜 : <input type="text" name="s_date" value="20220927"><br>
-		상영시간 : <input type="text" name="s_time" value="10:30"><br>
-		영화아이디 : <input type="text" name="m_id" value="10"><br>
+		극장아이디 : <input type="text" name="t_id" value="1"><br>
+		상영날짜 : <input type="text" name="s_date" value="2022-09-26"><br>
+		상영시간 : <input type="text" name="s_time" value="11:10"><br>
+		영화아이디 : <input type="text" name="m_id" value="1"><br>
 		
 		
 		<input type="submit" value="인원/좌석 선택하기">

@@ -92,7 +92,7 @@ public class PayAction implements Action{
 		//예매 제어하기
 		synchronized(this){ //인스턴스 메서드 안의 동기화 블럭
 			//디비의 좌석리스트 받아오기
-			List<ReserveDTO> seatList = dao.getSeatList(s_date, s_time, m_id);
+			List<ReserveDTO> seatList = dao.getSeatList(t_id, s_date, s_time, m_id);
 			List<String> seat_1 = new ArrayList<String>();
 			List<String> seat_2 = new ArrayList<String>();
 			List<String> seat_3 = new ArrayList<String>();
