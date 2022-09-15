@@ -113,11 +113,9 @@ public class PayAction implements Action{
 				if(seat_1.contains(seatss[i])){
 					response.setContentType("text/html; charset=UTF-8");
 					PrintWriter out=response.getWriter();
-					// 이전화면말고 다른 화면으로 보내고 싶은데 여기서 보내면 오류가 난다
-					// 왜 그럴까
 					out.println("<script>");
 					out.println("alert('이미 선택된 좌석입니다');");
-					out.println("history.back();");
+					out.println("location.href = './MovieSelect.re'");
 					out.println("</script>");
 					out.close();
 					return null;
@@ -127,7 +125,7 @@ public class PayAction implements Action{
 					PrintWriter out=response.getWriter();
 					out.println("<script>");
 					out.println("alert('이미 선택된 좌석입니다');");
-					out.println("history.back();");
+					out.println("location.href = './MovieSelect.re'");
 					out.println("</script>");
 					out.close();
 					return null;
@@ -137,7 +135,7 @@ public class PayAction implements Action{
 					PrintWriter out=response.getWriter();
 					out.println("<script>");
 					out.println("alert('이미 선택된 좌석입니다');");
-					out.println("history.back();");
+					out.println("location.href = './MovieSelect.re'");
 					out.println("</script>");
 					out.close();
 					return null;
@@ -147,48 +145,16 @@ public class PayAction implements Action{
 					PrintWriter out=response.getWriter();
 					out.println("<script>");
 					out.println("alert('이미 선택된 좌석입니다');");
-					out.println("history.back();");
+					out.println("location.href = './MovieSelect.re'");
 					out.println("</script>");
 					out.close();
 					return null;
-//					forward = new ActionForward();
-//					forward.setPath("./MovieSelect.re"); 
-//					forward.setRedirect(true); 
-//					return forward;
 				}
 			}
 			System.out.println("검토 완료.------------------------------------");
 			
 		}
-//		for(int i=0; i<num; i++){
-//			if(seat_1.contains(seatss[i])){
-//				forward = new ActionForward();
-//				forward.setPath("./MovieSelect.re"); //에러페이지 -> 영화선택 페이지
-//				forward.setRedirect(true); 
-//				return forward;
-//			} 
-//			else if(seat_2.contains(seatss[i])){
-//				forward = new ActionForward();
-//				forward.setPath("./errorPage.re"); 
-//				forward.setRedirect(true); 
-//				return forward;
-//			}
-//			else if(seat_3.contains(seatss[i])){
-//				forward = new ActionForward();
-//				forward.setPath("./errorPage.re"); 
-//				forward.setRedirect(true); 
-//				return forward;
-//			}
-//			else if(seat_4.contains(seatss[i])){
-//				forward = new ActionForward();
-//				forward.setPath("./errorPage.re"); 
-//				forward.setRedirect(true); 
-//				return forward;
-//			}
-//		}
-//		System.out.println("검토 완료.------------------------------------");
-//		
-//	}
+
 		
 		
 		
