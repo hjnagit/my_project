@@ -23,6 +23,12 @@ public class ReserveDTO {
 	private int r_pay_price; //가격
 	private int r_user_point; //포인트
 	
+	
+	
+	
+	
+	
+	
 	private String m_nm; //영화 이름
 	private String mv_picture; //영화 사진
 	

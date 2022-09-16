@@ -51,7 +51,7 @@ public class ReserveFrontController extends HttpServlet{
 				e.printStackTrace();
 			}
 		}
-		else if(command.equals("/SeatSelectAction.re")){ //좌석선택액션으로 이동 - 사용안함!!!
+		else if(command.equals("/PayView.re")){ //좌석선택액션으로 이동
 			
 			System.out.println("C : /SeatSelectAction.re 호출");
 			
@@ -64,16 +64,19 @@ public class ReserveFrontController extends HttpServlet{
 			}
 			
 		}	
+		
 		else if(command.equals("/seatSelectView.re")){ //좌석선택페이지로 이동
 			forward = new ActionForward();
 			forward.setPath("./seatSelectView.jsp");
 			forward.setRedirect(false);
 		}	
+		
 		else if(command.equals("/payView.re")){ //결제페이지로 이동
 			forward = new ActionForward();
 			forward.setPath("./payView.jsp");
 			forward.setRedirect(false);
 		}
+		
 		else if(command.equals("/PayAction.re")){ //결제액션으로 이동 - 디비에 저장하기
 			
 			System.out.println("C : /PayAction.re 호출");
@@ -92,7 +95,7 @@ public class ReserveFrontController extends HttpServlet{
 			forward.setPath("./payCom.jsp");
 			forward.setRedirect(false);
 		}
-		else if(command.equals("/errorPage.re")){ //에러페이지->영화선택 페이지
+		else if(command.equals("/errorPage.re")){ //에러페이지->영화선택 페이지 -사용안함////////
 			forward = new ActionForward();
 			forward.setPath("./errorPage.jsp");
 			forward.setRedirect(true);

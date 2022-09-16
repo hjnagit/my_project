@@ -53,10 +53,10 @@ $( document ).ready( function() {
 
 <!-- 예매된 좌석 가져와서 제어하기 -->
 <%
-	List s1 = (ArrayList) request.getAttribute("seat_1");
-	List s2 = (ArrayList) request.getAttribute("seat_2");
-	List s3 = (ArrayList) request.getAttribute("seat_3");
-	List s4 = (ArrayList) request.getAttribute("seat_4");
+	List s1 = (ArrayList) session.getAttribute("seat_1");
+	List s2 = (ArrayList) session.getAttribute("seat_2");
+	List s3 = (ArrayList) session.getAttribute("seat_3");
+	List s4 = (ArrayList) session.getAttribute("seat_4");
 	String sss1 = "";
 	String sss2 = "";
 	String sss3 = "";
@@ -110,25 +110,17 @@ $( document ).ready( function() {
 <h1>좌석선택페이지</h1>
 
 
-<form action="payView.re" method="POST" class="seatView" style="max-width:720px;">
+<form action="PayView.re" method="POST" class="seatView" style="max-width:720px;">
 
 	<fieldset>
 		<h3>영화 선택 정보</h3>
 		<!-- 정보 넘기기 -->
-		<input type="hidden" name="t_id" id="t_id" value="${param.t_id }">
-		<input type="hidden" name="m_id" id="m_id" value="${param.m_id }">
-		<input type="hidden" name="s_date" id="s_date" value="${param.s_date }">
-		<input type="hidden" name="s_time" id="s_time" value="${param.s_time }">
-		<input type="hidden" name="u_id" id="u_id" value="${param.u_id }">
-		<input type="hidden" name="mv_picture" id="mv_picture" value="${dto.mv_picture }">
-		<input type="hidden" name="m_nm" id="m_nm" value="${dto.m_nm }">
-		<input type="hidden" name="point" id="point" value="${requestScope.point }">
 		
 
-		<img alt="" src="${dto.mv_picture }" width="150" height="200"> <br>
-		영화이름 : ${dto.m_nm }
-		날짜 : ${param.s_date }
-		시간 : ${param.s_time }
+		<img alt="" src="${dtoM.mv_picture }" width="150" height="200"> <br>
+		영화이름 : ${dtoM.m_nm }
+		날짜 : ${dtoR.s_date }
+		시간 : ${dtoR.s_time }
 	</fieldset>
 
 

@@ -54,19 +54,10 @@ $( document ).ready( function() {
 <fieldset>
 	<h3>예매 정보</h3>
 	<form action="./PayAction.re" method="post">
-		<img alt="" src="${param.mv_picture }" width="150" height="200"> <br>
-		영화이름 : ${param.m_nm }
-		날짜 : ${param.s_date }
-		시간 : ${param.s_time }
-
-
-		<input type="hidden" name="t_id" id="t_id" value="${param.t_id }">
-		<input type="hidden" name="m_id" id="m_id" value="${param.m_id }">
-		<input type="hidden" name="s_date" id="s_date" value="${param.s_date }">
-		<input type="hidden" name="s_time" id="s_time" value="${param.s_time }">
-		<input type="hidden" name="u_id" id="u_id" value="${param.u_id }">
-		<input type="hidden" name="mv_picture" id="mv_picture" value="${param.mv_picture }">
-		<input type="hidden" name="m_nm" id="m_nm" value="${param.m_nm }">
+		<img alt="" src="${dtoM.mv_picture }" width="150" height="200"> <br>
+		영화이름 : ${dtoM.m_nm }
+		날짜 : ${dtoR.s_date }
+		시간 : ${dtoR.s_time }
 
 
 		
@@ -113,12 +104,12 @@ $( document ).ready( function() {
 
 
 		
-		보유 포인트 : <span id="pointS" >${param.point }</span>
-		<input type="hidden" name="point" id="point" value="${param.point }">
+		보유 포인트 : <span id="pointS" >${dtoP.point }</span>
+		<input type="hidden" name="point" id="point" value="${dtoP.point }">
 		<br>
 		
 		
-		포인트 사용 : <input type="number" name="r_user_point" id="r_user_point" max="${param.point }" min="0" step="100" value="0"> 
+		포인트 사용 : <input type="number" name="r_user_point" id="r_user_point" max="${dtoP.point }" min="0" step="100" value="0"> 
 		<small>(포인트는 100 단위로 사용가능합니다.)</small>
 
 

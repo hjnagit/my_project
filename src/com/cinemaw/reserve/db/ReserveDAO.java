@@ -8,6 +8,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.cinemaw.member.db.MovieDTO;
+import com.cinemaw.member.db.PointDTO;
+
 public class ReserveDAO {
 	// 공통변수 (인스턴스 변수)
 	private Connection con = null; // 디비연결정보 저장
@@ -120,9 +123,9 @@ public class ReserveDAO {
 	}// 예약정보 디비에 넣기 - reservation()
 	
 	//영화정보 가져오기
-	public ReserveDTO getMovieInfo(int m_id){
+	public MovieDTO getMovieInfo(int m_id){
 		
-		ReserveDTO dto = new ReserveDTO();
+		MovieDTO dto = new MovieDTO();
 		try {
 			//1. 드라이버 로드
 			//2. 디비 연결
@@ -188,13 +191,13 @@ public class ReserveDAO {
 				//정보 있음
 				//if(t_id == rs.getInt("t_id") && s_date.equals(rs.getString("s_date")) && s_time.equals(rs.getString("s_time"))){
 				//정보가 같으면
-				ReserveDTO dto = new ReserveDTO();
-				dto.setR_seat_1(rs.getString("r_seat_1"));
-				dto.setR_seat_2(rs.getString("r_seat_2"));
-				dto.setR_seat_3(rs.getString("r_seat_3"));
-				dto.setR_seat_4(rs.getString("r_seat_4"));
+				ReserveDTO dtoR = new ReserveDTO();
+				dtoR.setR_seat_1(rs.getString("r_seat_1"));
+				dtoR.setR_seat_2(rs.getString("r_seat_2"));
+				dtoR.setR_seat_3(rs.getString("r_seat_3"));
+				dtoR.setR_seat_4(rs.getString("r_seat_4"));
 				
-				seatList.add(dto);
+				seatList.add(dtoR);
 				
 				//}
 			}
@@ -212,9 +215,9 @@ public class ReserveDAO {
 	}//좌석정보 가져오기
 	
 	//회원 보유 포인트 가져오기
-	public ReserveDTO getPoint(String u_id){
+	public PointDTO getPoint(String u_id){
 		
-		ReserveDTO dto = new ReserveDTO();
+		PointDTO dtoP = new PointDTO();
 		try {
 			//1. 드라이버 로드
 			//2. 디비 연결
@@ -232,7 +235,7 @@ public class ReserveDAO {
 		
 			// 5. 데이터 처리
 			if(rs.next()){
-				dto.setPoint(rs.getInt("point"));
+				dtoP.setPoint(rs.getInt("point"));
 			}
 			
 			
@@ -244,7 +247,7 @@ public class ReserveDAO {
 			closeDB();
 		}
 		
-		return dto;
+		return dtoP;
 	}//회원 보유 포인트 가져오기	
 	
 	

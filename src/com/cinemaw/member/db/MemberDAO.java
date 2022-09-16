@@ -87,16 +87,30 @@ public class MemberDAO {
 					//정보가 같으면
 					ReserveDTO dto = new ReserveDTO();
 					
+					dto.setR_id(rs.getInt("r_id"));
+					dto.setU_id(rs.getString("u_id"));
+					dto.setT_id(rs.getInt("t_id"));
+					dto.setS_date(rs.getString("s_date"));
+					dto.setS_time(rs.getString("s_time"));
 					dto.setM_id(rs.getInt("m_id"));
-					dto.setM_nm(rs.getString("m_nm"));
-					
-					
-					
+					dto.setR_adult(rs.getInt("r_adult"));
+					dto.setR_teenager(rs.getInt("r_teenager"));
+					dto.setR_elderly(rs.getInt("r_elderly"));
 					
 					dto.setR_seat_1(rs.getString("r_seat_1"));
 					dto.setR_seat_2(rs.getString("r_seat_2"));
 					dto.setR_seat_3(rs.getString("r_seat_3"));
 					dto.setR_seat_4(rs.getString("r_seat_4"));
+					
+					dto.setR_pay_type(rs.getString("r_pay_type"));
+					dto.setR_pay_price(rs.getInt("r_pay_price"));
+					dto.setR_user_point(rs.getInt("r_user_point"));
+					
+					dto.setM_nm(rs.getString("m_nm"));
+					dto.setMv_picture(rs.getString("mv_picture"));
+					
+					
+					
 					
 					seatList.add(dto);
 					
