@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 public class MemberFrontController extends HttpServlet{
 	
 	
@@ -37,13 +38,19 @@ public class MemberFrontController extends HttpServlet{
 		ActionForward forward = null;
 		
 		if(command.equals("/MyPage.me")){
-			// 회원가입 페이지 보여주기 (DB정보 필요없음)
-			System.out.println(" C : /MyPage.me 호출 ");
-			System.out.println(" C : DB정보 0 - view페이지로 이동 ");
+			System.out.println("C : /MyPage.bo 호출");
+			System.out.println("C : DB정보가 필요, 페이지 이동x, 페이지 출력o");
 			
-			forward = new ActionForward();
-			forward.setPath("./Member_SH/signUp.jsp");
-			forward.setRedirect(false); 
+			//BoardListAction() 객체 생성
+//			BoardListAction listAction = new BoardListAction();
+			action = new MyPageAction();
+			try {
+				System.out.println("C : 해당 Model 객체 호출");
+//				forward = listAction.execute(request, response);
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 		
 //		else if(command.equals("/MemberInsertAction.me")){

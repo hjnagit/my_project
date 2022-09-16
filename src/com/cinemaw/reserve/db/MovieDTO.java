@@ -1,4 +1,4 @@
-package com.cinemaw.member.db;
+package com.cinemaw.reserve.db;
 
 import java.sql.Timestamp;
 

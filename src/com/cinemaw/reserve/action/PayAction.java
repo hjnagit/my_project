@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.cinemaw.member.db.PointDTO;
+import com.cinemaw.reserve.db.PointDTO;
 import com.cinemaw.reserve.db.ReserveDAO;
 import com.cinemaw.reserve.db.ReserveDTO;
 

@@ -8,9 +8,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.cinemaw.member.db.MovieDTO;
-import com.cinemaw.member.db.PointDTO;
-
 public class ReserveDAO {
 	// 공통변수 (인스턴스 변수)
 	private Connection con = null; // 디비연결정보 저장
