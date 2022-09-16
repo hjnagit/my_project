@@ -80,7 +80,7 @@ public class MovieSelectAction implements Action {
 		// 화면에 출력
 		// 페이지 이동(화면전환)
 		ActionForward forward = new ActionForward();
-		forward.setPath("./seatSelectView.jsp");
+		forward.setPath("./reservation/seatSelectView.jsp");
 		forward.setRedirect(false); // 화면만 바뀌는 false
 		
 		

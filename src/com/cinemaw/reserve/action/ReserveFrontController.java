@@ -36,7 +36,7 @@ public class ReserveFrontController extends HttpServlet{
 		
 		if(command.equals("/MovieSelect.re")){ //영화선택페이지로 이동
 			forward = new ActionForward();
-			forward.setPath("./movieSelectView.jsp");
+			forward.setPath("./reservation/movieSelectView.jsp");
 			forward.setRedirect(false);
 		}
 		else if(command.equals("/SeatSelect.re")){ //영화선택액션으로 이동
@@ -67,13 +67,13 @@ public class ReserveFrontController extends HttpServlet{
 		
 		else if(command.equals("/seatSelectView.re")){ //좌석선택페이지로 이동
 			forward = new ActionForward();
-			forward.setPath("./seatSelectView.jsp");
+			forward.setPath("./reservation/seatSelectView.jsp");
 			forward.setRedirect(false);
 		}	
 		
 		else if(command.equals("/payView.re")){ //결제페이지로 이동
 			forward = new ActionForward();
-			forward.setPath("./payView.jsp");
+			forward.setPath("./reservation/payView.jsp");
 			forward.setRedirect(false);
 		}
 		
@@ -92,7 +92,7 @@ public class ReserveFrontController extends HttpServlet{
 		}	
 		else if(command.equals("/payCom.re")){ //결제완료페이지 이동
 			forward = new ActionForward();
-			forward.setPath("./payCom.jsp");
+			forward.setPath("./reservation/payCom.jsp");
 			forward.setRedirect(false);
 		}
 		else if(command.equals("/errorPage.re")){ //에러페이지->영화선택 페이지 -사용안함////////

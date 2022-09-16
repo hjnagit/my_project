@@ -46,7 +46,7 @@ public class SeatSelectAction implements Action{
 		// 화면에 출력
 		// 페이지 이동(화면전환)
 		ActionForward forward = new ActionForward();
-		forward.setPath("./payView.jsp");
+		forward.setPath("./reservation/payView.jsp");
 		forward.setRedirect(false); // 화면만 바뀌는 false
 		
 		
